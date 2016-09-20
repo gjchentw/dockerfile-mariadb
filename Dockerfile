@@ -6,5 +6,6 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 	mkdir -p /run/mysqld /var/lib/mysql
 
 ADD	mariadb.sh /usr/local/bin
+EXPOSE	3306
 VOLUME	[ "/run/mysqld", "/var/lib/mysql", "/etc/mysql" ]
 ENTRYPOINT	[ "/usr/local/bin/mariadb.sh" ]
