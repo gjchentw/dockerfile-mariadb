@@ -7,4 +7,4 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 	mysql_install_db --user=mysql --rpm
 
 
-CMD rsyslogd; /usr/bin/mysqld_safe --syslog; # --nowatch; crond -f;
+CMD rsyslogd; chown -R mysql:mysql /run/mysqld && /usr/bin/mysqld_safe --syslog;
