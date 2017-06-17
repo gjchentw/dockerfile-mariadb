@@ -1,4 +1,4 @@
-FROM gjchen/alpine:latest
+FROM gjchen/alpine:3.6
 MAINTAINER gjchen <gjchen.tw@gmail.com>
 
 RUN	apk --no-cache --no-progress upgrade -f && \
@@ -8,8 +8,7 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 ENV	MYSQLD="/usr/bin/mysqld_safe"
 ENV	MYSQLD_OPT="--syslog"
 
-ADD	mariadb.sh /usr/local/bin
+ADD	s6.d /etc/s6.d
 
 EXPOSE	3306
 VOLUME	[ "/run/mysqld", "/var/lib/mysql", "/etc/mysql" ]
-ENTRYPOINT	[ "/usr/local/bin/mariadb.sh" ]

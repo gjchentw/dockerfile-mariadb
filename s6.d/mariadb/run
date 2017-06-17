@@ -1,0 +1,8 @@
+#!/bin/bash
+[[ -f ./setup ]] && source ./setup
+
+pushd /root > /dev/null
+    mysqld=${MYSQLD:-"/usr/bin/mysqld_safe"}
+    opt=${MYSQLD_OPT:-"--syslog"}
+    exec su-exec root $mysqld $opt
+popd
