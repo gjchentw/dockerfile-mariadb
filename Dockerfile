@@ -1,4 +1,4 @@
-FROM gjchen/alpine:3.6
+FROM gjchen/alpine:3.7
 MAINTAINER gjchen <gjchen.tw@gmail.com>
 
 RUN	apk --no-cache --no-progress upgrade -f && \
@@ -8,7 +8,7 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 ENV	MYSQLD="/usr/bin/mysqld_safe"
 ENV	MYSQLD_OPT="--syslog"
 
-ADD	s6.d /etc/s6.d
+COPY	s6.d /etc/s6.d
 
 EXPOSE	3306
 VOLUME	[ "/run/mysqld", "/var/lib/mysql", "/etc/mysql" ]
