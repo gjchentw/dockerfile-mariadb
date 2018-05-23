@@ -11,4 +11,3 @@ ENV	MYSQLD_OPT="--syslog"
 COPY	s6.d /etc/s6.d
 
 EXPOSE	3306
-VOLUME	[ "/run/mysqld", "/var/lib/mysql", "/etc/mysql" ]
